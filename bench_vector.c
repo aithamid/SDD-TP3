@@ -75,6 +75,7 @@ void insert_erase_random(size_t init_size, size_t n)
 		vector_display(v);
 		printf("\n");
 	}
+	vector_free(v);
 }
 
 // Ajoute et enleve en tete de vector une valeur aleatoire
@@ -102,6 +103,8 @@ void insert_erase_head(size_t init_size, size_t n)
 		vector_display(v);
 		printf("\n");
 	}
+
+	vector_free(v);
 }
 
 // Ajoute et enleve en queue de vector une valeur aleatoire
@@ -125,6 +128,8 @@ void insert_erase_tail(size_t init_size, size_t n)
 		vector_display(v);
 		printf("\n");
 	}
+
+	vector_free(v);
 }
 
 // Recupere la valeur a une position aleatoire et l incremente de 1
@@ -147,6 +152,7 @@ void read_write_random(size_t init_size, size_t n)
 		printf("\n");
 		pos = rand() % v->nbelement;
 	}
+	vector_free(v);
 }
 
 // Recupere chaque valeur de vector et l incremente de 1
@@ -166,6 +172,7 @@ void read_write_sequential(size_t init_size, size_t n)
 			printf("\n");
 		}
 	}
+	vector_free(v);
 }
 
 void bubble_sort(size_t init_size, size_t n)
