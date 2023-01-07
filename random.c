@@ -52,7 +52,7 @@ char random_char(char a, char b){
 }
 
 void random_init_string(char * c, size_t n){
-    for(int i=0; i<n; i++)
+    for(size_t i=0; i<n; i++)
         c[i] = random_char('A','[');
 }
 

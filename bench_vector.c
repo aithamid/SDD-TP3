@@ -155,13 +155,13 @@ void read_write_sequential(size_t init_size, size_t n)
 	p_s_vector v = vector_alloc(init_size);
 	for (int i = 0; i < (int)n; i++)
 	{
-		for (int j = 0; j < v->nbelement; j++)
+		for (size_t j = 0; j < v->nbelement; j++)
 		{
 			double stock;
 			vector_get(v, j, &stock);
 			stock += 1;
 			vector_set(v, j, stock);
-			printf("Ajout a la position : %d a la valeur %.1f \n ", j, stock);
+			printf("Ajout a la position : %zu a la valeur %.1f \n ", j, stock);
 			vector_display(v);
 			printf("\n");
 		}
@@ -171,36 +171,36 @@ void read_write_sequential(size_t init_size, size_t n)
 void bubble_sort(size_t init_size, size_t n)
 {
 
-	for (int i = 0; i < (int)n; i++)
-	{
-		p_s_vector v = vector_alloc(init_size);
-		int size_decrement = v->nbelement - 1;
-		for (int k = 0; k < v->nbelement; k++)
-		{
-			double nb_double = random_double(1.00, 100.0);
-			vector_set(v,k,nb_double);
-		}
-		printf("premier tableau\n");
-		vector_display(v);
-		printf("\n");
-		while (size_decrement != 0)
-		{
-			for (int j = 0; j < size_decrement; j++)
-			{
-				double stock, stock2;
-				vector_get(v, j, &stock);
-				vector_get(v, j + 1, &stock2);
-				if (stock > stock2)
-				{
-					vector_set(v, j, stock2);
-					vector_set(v, j + 1, stock);
-				}
-			}
-			size_decrement--;
-		}
-		printf("tableau trie\n");
-		vector_display(v);
-		printf("\n");
-		vector_clear(v);
-	}
+    for (int i = 0; i < (int)n; i++)
+    {
+        p_s_vector v = vector_alloc(init_size);
+        int size_decrement = v->nbelement - 1;
+        for (size_t k = 0; k < v->nbelement; k++)
+        {
+            double nb_double = random_double(1.00, 100.0);
+            vector_set(v,k,nb_double);
+        }
+        printf("premier tableau\n");
+        vector_display(v);
+        printf("\n");
+        while (size_decrement != 0)
+        {
+            for (int j = 0; j < size_decrement; j++)
+            {
+                double stock, stock2;
+                vector_get(v, j, &stock);
+                vector_get(v, j + 1, &stock2);
+                if (stock > stock2)
+                {
+                    vector_set(v, j, stock2);
+                    vector_set(v, j + 1, stock);
+                }
+            }
+            size_decrement--;
+        }
+        printf("tableau trie\n");
+        vector_display(v);
+        printf("\n");
+        vector_clear(v);
+    }
 }
