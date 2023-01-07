@@ -53,6 +53,10 @@ void insert_erase_random(size_t init_size, size_t n)
 {
 	p_s_vector v = vector_alloc(init_size);
 	int pos = rand() % v->nbelement;
+
+	printf("first : ");
+	vector_display(v);
+	printf("\n");
 	for (int i = 0; i < (int)n; i++)
 	{
 		if (v->nbelement == 0)
@@ -60,9 +64,7 @@ void insert_erase_random(size_t init_size, size_t n)
 			return;
 		}
 		double nb_double = random_double(1.00, (double)n);
-		printf("first : ");
-		vector_display(v);
-		printf("\n");
+
 		vector_insert(v, pos, nb_double);
 		printf("second : ");
 		vector_display(v);
@@ -80,6 +82,10 @@ void insert_erase_head(size_t init_size, size_t n)
 {
 	p_s_vector v = vector_alloc(init_size);
 	int pos = 0;
+
+	printf("first : ");
+	vector_display(v);
+	printf("\n");
 	for (int i = 0; i < (int)n; i++)
 	{
 		if (v->nbelement == 0)
@@ -87,9 +93,6 @@ void insert_erase_head(size_t init_size, size_t n)
 			return;
 		}
 		double nb_double = random_double(1.00, (double)n);
-		printf("first : ");
-		vector_display(v);
-		printf("\n");
 		vector_insert(v, pos, nb_double);
 		printf("insert : ");
 		vector_display(v);
@@ -105,13 +108,14 @@ void insert_erase_head(size_t init_size, size_t n)
 void insert_erase_tail(size_t init_size, size_t n)
 {
 	p_s_vector v = vector_alloc(init_size);
+	printf("first : ");
+	vector_display(v);
+	printf("\n");
 
 	for (int i = 0; i < (int)n; i++)
 	{
 		double nb_double = random_double(1.00, (double)n);
-		printf("first : ");
-		vector_display(v);
-		printf("\n");
+		
 		vector_push_back(v, nb_double);
 		printf("insert : ");
 		vector_display(v);
@@ -166,30 +170,38 @@ void read_write_sequential(size_t init_size, size_t n)
 
 void bubble_sort(size_t init_size, size_t n)
 {
-	// p_s_vector v = vector_alloc(init_size);
-	// vector_display(v);
-	// int size_decrement = v->nbelement - 1;
-	// for (int i = 0; i < (int)n; i++)
-	// {
 
-	// 	while (size_decrement != 0)
-	// 	{
-	// 		for (int j = 0; j < size_decrement; j++)
-	// 		{
-	// 			double stock, stock2;
-	// 			vector_get(v, j, &stock);
-	// 			vector_get(v, j + 1, &stock2);
-	// 			if (stock > stock2)
-	// 			{
-	// 				vector_set(v, j, stock2);
-	// 				vector_set(v, j + 1, stock);
-	// 				printf("Changement de position: %d a la valeur %.1f \n ", j, stock);
-	// 			}
-
-	// 			vector_display(v);
-	// 			printf("\n");
-	// 		}
-	// 		size_decrement--;
-	// 	}
-	// }
+	for (int i = 0; i < (int)n; i++)
+	{
+		p_s_vector v = vector_alloc(init_size);
+		int size_decrement = v->nbelement - 1;
+		for (int k = 0; k < v->nbelement; k++)
+		{
+			double nb_double = random_double(1.00, 100.0);
+			vector_set(v,k,nb_double);
+		}
+		printf("premier tableau\n");
+		vector_display(v);
+		printf("\n");
+		while (size_decrement != 0)
+		{
+			for (int j = 0; j < size_decrement; j++)
+			{
+				double stock, stock2;
+				vector_get(v, j, &stock);
+				vector_get(v, j + 1, &stock2);
+				if (stock > stock2)
+				{
+					vector_set(v, j, stock2);
+					vector_set(v, j + 1, stock);
+				}
+			}
+			size_decrement--;
+		}
+		printf("tableau trie\n");
+		vector_display(v);
+		printf("\n");
+		vector_clear(v);
+		vector_free(v);
+	}
 }
