@@ -202,6 +202,5 @@ void bubble_sort(size_t init_size, size_t n)
 		vector_display(v);
 		printf("\n");
 		vector_clear(v);
-		vector_free(v);
 	}
 }
