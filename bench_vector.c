@@ -12,6 +12,9 @@ void insert_erase_tail(size_t init_size, size_t n);
 void read_write_random(size_t init_size, size_t n);
 void read_write_sequential(size_t init_size, size_t n);
 void bubble_sort(size_t init_size, size_t n);
+// Si vous avez un segmentation fault lors du test de bubble_sort 
+// mettez la commande : valgrind ./bench_vector bubble_sort X X  2>/dev/null
+
 
 int main(int argc, char *argv[])
 {
