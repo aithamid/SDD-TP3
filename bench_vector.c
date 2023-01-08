@@ -174,10 +174,10 @@ void read_write_sequential(size_t init_size, size_t n)
 void bubble_sort(size_t init_size, size_t n)
 {
 
-    for (int i = 0; i < (int)n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         p_s_vector v = vector_alloc(init_size);
-        int size_decrement = v->nbelement - 1;
+        size_t size_decrement = v->nbelement - 1;
         for (size_t k = 0; k < v->nbelement; k++)
         {
             double nb_double = random_double(1.00, 100.0);
@@ -186,9 +186,9 @@ void bubble_sort(size_t init_size, size_t n)
         printf("premier tableau\n");
         vector_display(v);
         printf("\n");
-        while (size_decrement != 0)
+		for (size_t k = size_decrement; k > 0; k--)
         {
-            for (int j = 0; j < size_decrement; j++)
+            for (size_t j = 0; j < size_decrement; j++)
             {
                 double stock, stock2;
                 vector_get(v, j, &stock);
@@ -199,7 +199,6 @@ void bubble_sort(size_t init_size, size_t n)
                     vector_set(v, j + 1, stock);
                 }
             }
-            size_decrement--;
         }
         printf("tableau trie\n");
         vector_display(v);
