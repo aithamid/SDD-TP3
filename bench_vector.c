@@ -16,8 +16,6 @@ void bubble_sort(size_t init_size, size_t n);
 int main(int argc, char *argv[])
 {
 	srand(time(NULL));
-	// int value = strcmp(argv[1],"insert_erase_random");
-	// printf("%d",value);
 	if (argc != 4)
 	{
 		printf("Aide : %s test_type init_size n\n", argv[0]);
@@ -33,18 +31,16 @@ int main(int argc, char *argv[])
 
 	if (strcmp(argv[1], "insert_erase_random") == 0)
 		insert_erase_random(init_size, n);
-	if (strcmp(argv[1], "insert_erase_head") == 0)
+	else if (strcmp(argv[1], "insert_erase_head") == 0)
 		insert_erase_head(init_size, n);
-	if (strcmp(argv[1], "insert_erase_tail") == 0)
+	else if (strcmp(argv[1], "insert_erase_tail") == 0)
 		insert_erase_tail(init_size, n);
-	if (strcmp(argv[1], "read_write_random") == 0)
+	else if (strcmp(argv[1], "read_write_random") == 0)
 		read_write_random(init_size, n);
-	if (strcmp(argv[1], "read_write_sequential") == 0)
+	else if (strcmp(argv[1], "read_write_sequential") == 0)
 		read_write_sequential(init_size, n);
-	if (strcmp(argv[1], "bubble_sort") == 0)
+	else if (strcmp(argv[1], "bubble_sort") == 0)
 		bubble_sort(init_size, n);
-	
-
 	return 0;
 }
 
@@ -54,7 +50,7 @@ void insert_erase_random(size_t init_size, size_t n)
 	p_s_vector v = vector_alloc(init_size);
 	int pos = rand() % v->nbelement;
 
-	printf("first : ");
+	printf("Tableau initialise : ");
 	vector_display(v);
 	printf("\n");
 	for (int i = 0; i < (int)n; i++)
@@ -66,12 +62,12 @@ void insert_erase_random(size_t init_size, size_t n)
 		double nb_double = random_double(1.00, (double)n);
 
 		vector_insert(v, pos, nb_double);
-		printf("second : ");
+		printf("Insert : ");
 		vector_display(v);
 		printf("\n");
 		pos = rand() % v->nbelement;
 		vector_erase(v, pos);
-		printf("third : ");
+		printf("Erase: ");
 		vector_display(v);
 		printf("\n");
 	}
@@ -84,7 +80,7 @@ void insert_erase_head(size_t init_size, size_t n)
 	p_s_vector v = vector_alloc(init_size);
 	int pos = 0;
 
-	printf("first : ");
+	printf("Tableau initialise : ");
 	vector_display(v);
 	printf("\n");
 	for (int i = 0; i < (int)n; i++)
@@ -111,7 +107,7 @@ void insert_erase_head(size_t init_size, size_t n)
 void insert_erase_tail(size_t init_size, size_t n)
 {
 	p_s_vector v = vector_alloc(init_size);
-	printf("first : ");
+	printf("Tableau initialise : ");
 	vector_display(v);
 	printf("\n");
 
